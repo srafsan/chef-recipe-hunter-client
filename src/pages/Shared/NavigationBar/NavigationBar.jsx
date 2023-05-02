@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { Container, Nav, Navbar } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../../Providers/AuthProvider";
+import { FaUserCircle } from "react-icons/fa";
 
 const NavigationBar = () => {
   const { user } = useContext(AuthContext);
@@ -23,9 +24,7 @@ const NavigationBar = () => {
             <Link className="text-decoration-none mx-5" to="/blog">
               Blog
             </Link>
-            <div>
-              <p>{user.displayName}</p>
-            </div>
+            <div>{user && <FaUserCircle style={{ fontSize: "2rem" }} />}</div>
           </Nav>
         </Navbar.Collapse>
         <Link to="/login" className="btn btn-warning">
