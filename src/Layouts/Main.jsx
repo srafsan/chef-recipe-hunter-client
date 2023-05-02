@@ -1,13 +1,17 @@
 import { Outlet } from "react-router-dom";
 import NavigationBar from "../pages/Shared/NavigationBar/NavigationBar";
 import { Container } from "react-bootstrap";
+import Footer from "../pages/Shared/Footer/Footer";
 
 const Main = () => {
   return (
-    <Container>
-      <NavigationBar />
-      <Outlet />
-    </Container>
+    <div>
+      <Container className="pb-5">
+        <NavigationBar />
+        <Outlet />
+      </Container>
+      <Footer />
+    </div>
   );
 };
 
