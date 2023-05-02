@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import { AuthContext } from "../../Providers/AuthProvider";
 
 const Login = () => {
-  const { signIn } = useContext(AuthContext);
+  const { signIn, signInGoogle } = useContext(AuthContext);
 
   const handleLogin = (event) => {
     event.preventDefault();
@@ -24,6 +24,10 @@ const Login = () => {
       .catch((error) => {
         console.error(error);
       });
+  };
+
+  const handleGoogle = () => {
+    signInGoogle();
   };
 
   return (
@@ -61,6 +65,20 @@ const Login = () => {
         </Form.Text>
         <Form.Text className="text-success"></Form.Text>
         <Form.Text className="text-danger"></Form.Text>
+
+        <div className="d-flex flex-column">
+          <Button
+            onClick={handleGoogle}
+            className="my-3"
+            variant="primary"
+            type="submit"
+          >
+            Google
+          </Button>
+          <Button variant="primary" type="submit">
+            Github
+          </Button>
+        </div>
       </Form>
     </Container>
   );
