@@ -1,6 +1,7 @@
 /* eslint-disable react/no-unescaped-entities */
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
+import { Link } from "react-router-dom";
 
 function Chef() {
   const cardData = [
@@ -64,7 +65,9 @@ function Chef() {
               <Card.Title>Chef's Name: {card.name}</Card.Title>
               <Card.Text>Years of experience: {card.experience}</Card.Text>
               <Card.Text>Number of recipes: {card.recipes}</Card.Text>
-              <Button variant="primary">View</Button>
+              <Link to="details">
+                <Button variant="primary">View Recipes</Button>
+              </Link>
             </Card.Body>
           </Card>
         </div>

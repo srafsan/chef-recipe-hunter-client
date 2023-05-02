@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import { Button, Container, Nav, Navbar } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { AuthContext } from "../../../Providers/AuthProvider";
 import { FaUserCircle } from "react-icons/fa";
 
@@ -12,7 +12,7 @@ const NavigationBar = () => {
   };
 
   return (
-    <Navbar bg="light" expand="lg">
+    <Navbar expand="lg">
       <Container fluid>
         <Navbar.Brand href="#">RCafe</Navbar.Brand>
         <Navbar.Toggle aria-controls="navbarScroll" />
@@ -22,12 +22,12 @@ const NavigationBar = () => {
             style={{ maxHeight: "100px" }}
             navbarScroll
           >
-            <Link className="text-decoration-none" to="/">
+            <NavLink className="text-decoration-none" to="/">
               Home
-            </Link>
-            <Link className="text-decoration-none mx-5" to="/blog">
+            </NavLink>
+            <NavLink className="text-decoration-none mx-5" to="/blog">
               Blog
-            </Link>
+            </NavLink>
             <div>{user && <FaUserCircle style={{ fontSize: "2rem" }} />}</div>
           </Nav>
         </Navbar.Collapse>
@@ -36,9 +36,9 @@ const NavigationBar = () => {
             Logout
           </Button>
         ) : (
-          <Link to="/login">
+          <NavLink to="/login">
             <Button variant="secondary">Login</Button>
-          </Link>
+          </NavLink>
         )}
       </Container>
     </Navbar>
