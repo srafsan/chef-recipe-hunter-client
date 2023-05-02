@@ -1,6 +1,12 @@
 /* eslint-disable react-hooks/rules-of-hooks */
 import { createContext } from "react";
-import { getAuth } from "firebase/auth";
+import {
+  createUserWithEmailAndPassword,
+  getAuth,
+  onAuthStateChanged,
+  signInWithEmailAndPassword,
+  signOut,
+} from "firebase/auth";
 import app from "../Firebase/firebase.config";
 
 export const AuthContext = createContext(null);

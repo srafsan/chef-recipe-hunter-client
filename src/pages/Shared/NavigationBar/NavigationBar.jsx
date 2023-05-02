@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { Button, Container, Nav, Navbar } from "react-bootstrap";
+import { Container, Nav, Navbar } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../../Providers/AuthProvider";
 
@@ -28,7 +28,9 @@ const NavigationBar = () => {
             </div>
           </Nav>
         </Navbar.Collapse>
-        <Button variant="warning">Login</Button>
+        <Link to="/login" className="btn btn-warning">
+          Login
+        </Link>
       </Container>
     </Navbar>
   );
