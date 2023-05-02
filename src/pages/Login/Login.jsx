@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import { AuthContext } from "../../Providers/AuthProvider";
 
 const Login = () => {
-  const { signIn, signInGoogle } = useContext(AuthContext);
+  const { signIn, signInGoogle, signInGithub } = useContext(AuthContext);
 
   const handleLogin = (event) => {
     event.preventDefault();
@@ -28,6 +28,10 @@ const Login = () => {
 
   const handleGoogle = () => {
     signInGoogle();
+  };
+
+  const handleGithub = () => {
+    signInGithub();
   };
 
   return (
@@ -75,7 +79,7 @@ const Login = () => {
           >
             Google
           </Button>
-          <Button variant="primary" type="submit">
+          <Button onClick={handleGithub} variant="primary" type="submit">
             Github
           </Button>
         </div>
