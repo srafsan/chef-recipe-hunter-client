@@ -1,11 +1,15 @@
 import { useContext } from "react";
-import { Container, Nav, Navbar } from "react-bootstrap";
+import { Button, Container, Nav, Navbar } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../../Providers/AuthProvider";
 import { FaUserCircle } from "react-icons/fa";
 
 const NavigationBar = () => {
-  const { user } = useContext(AuthContext);
+  const { user, logOut } = useContext(AuthContext);
+
+  const handleLogOut = () => {
+    logOut();
+  };
 
   return (
     <Navbar bg="light" expand="lg">
@@ -27,9 +31,15 @@ const NavigationBar = () => {
             <div>{user && <FaUserCircle style={{ fontSize: "2rem" }} />}</div>
           </Nav>
         </Navbar.Collapse>
-        <Link to="/login" className="btn btn-warning">
-          Login
-        </Link>
+        {user ? (
+          <Button onClick={handleLogOut} variant="secondary">
+            Logout
+          </Button>
+        ) : (
+          <Link to="/login">
+            <Button variant="secondary">Login</Button>
+          </Link>
+        )}
       </Container>
     </Navbar>
   );
