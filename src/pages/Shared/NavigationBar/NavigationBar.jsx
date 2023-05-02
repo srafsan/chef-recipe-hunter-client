@@ -1,7 +1,11 @@
+import { useContext } from "react";
 import { Button, Container, Nav, Navbar } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../../Providers/AuthProvider";
 
 const NavigationBar = () => {
+  const { user } = useContext(AuthContext);
+
   return (
     <Navbar bg="light" expand="lg">
       <Container fluid>
@@ -20,7 +24,7 @@ const NavigationBar = () => {
               Blog
             </Link>
             <div>
-              <p>Profile</p>
+              <p>{user.displayName}</p>
             </div>
           </Nav>
         </Navbar.Collapse>
