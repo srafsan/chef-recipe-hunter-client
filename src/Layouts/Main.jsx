@@ -6,10 +6,10 @@ import Footer from "../pages/Shared/Footer/Footer";
 const Main = () => {
   return (
     <div>
-      <Container className="pb-5">
+      <Container>
         <NavigationBar />
-        <Outlet />
       </Container>
+      <Outlet />
       <Footer />
     </div>
   );
