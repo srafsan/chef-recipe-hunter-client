@@ -1,6 +1,14 @@
+import { useState } from "react";
 import { Button, Card } from "react-bootstrap";
+import toast, { Toaster } from "react-hot-toast";
 
 const DetailsRecipeList = () => {
+  const [isButtonDisabled, setIsButtonDisabled] = useState(false);
+  const notify = () => {
+    toast.success("Thank you for liking.");
+    setIsButtonDisabled(true);
+  };
+
   return (
     <Card className="mb-4" style={{ width: "100%" }}>
       <Card.Img
@@ -15,8 +23,11 @@ const DetailsRecipeList = () => {
         <Card.Text>Rating</Card.Text>
       </Card.Body>
       <Card.Footer>
-        <Button variant="primary">Favourite</Button>
+        <Button disabled={isButtonDisabled} onClick={notify} variant="primary">
+          Favourite
+        </Button>
       </Card.Footer>
+      <Toaster />
     </Card>
   );
 };
