@@ -1,6 +1,7 @@
 /* eslint-disable react/prop-types */
-import { FaFacebookSquare } from "react-icons/fa";
 import "./Chef.css";
+import LazyLoad from "react-lazy-load";
+import { Link } from "react-router-dom";
 
 function Chef({ chefDetails }) {
   return (
@@ -11,30 +12,29 @@ function Chef({ chefDetails }) {
           <div key={index} className="g-4 col-md-4">
             <div className="card">
               <div className="img1">
-                <img
-                  src="https://images.unsplash.com/photo-1577219491135-ce391730fb2c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=677&q=80"
-                  alt=""
-                />
+                <LazyLoad height={210}>
+                  <img
+                    src="https://images.unsplash.com/photo-1577219491135-ce391730fb2c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=677&q=80"
+                    alt=""
+                  />
+                </LazyLoad>
               </div>
               <div className="img2">
-                <img
-                  src="https://images.unsplash.com/photo-1577219491135-ce391730fb2c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=677&q=80"
-                  alt=""
-                />
+                <LazyLoad height={150}>
+                  <img src={card.img_url} alt="" />
+                </LazyLoad>
               </div>
               <div className="main-text">
-                <h2>Person one</h2>
-                <p>
-                  Lorem ipsum dolor sit, amet consectetur adipisicing elit. Rem
-                  odit saepe odio illo facere alias laborum in libero dolores
-                  molestiae error reiciendis, qui mollitia consequatur est
-                  incidunt eveniet veniam molestias.
-                </p>
+                <h2>{card.name}</h2>
+                <p>Years of Experience: {card.chef_experience}</p>
+                <p>Number of recipes: {card.no_of_recipes}</p>
+                <p>Total Likes: {card.rating}</p>
                 <p className="socials">
-                  <FaFacebookSquare />
-                  <FaFacebookSquare />
-                  <FaFacebookSquare />
-                  <FaFacebookSquare />
+                  <Link to={`/details/${card.chef_id}`}>
+                    <button className="btn btn-dark rounded-0">
+                      View Recipes
+                    </button>
+                  </Link>
                 </p>
               </div>
             </div>
