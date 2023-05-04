@@ -1,11 +1,17 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { Container, Nav, Navbar } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
 import { AuthContext } from "../../../Providers/AuthProvider";
+
 const NavigationBar = () => {
   const { user, logOut } = useContext(AuthContext);
   const handleLogOut = () => {
     logOut();
+  };
+
+  const [hover, setHover] = useState(false);
+  const onHover = () => {
+    setHover(!hover);
   };
 
   return (
@@ -37,9 +43,12 @@ const NavigationBar = () => {
             {/* <div>{user && <FaUserCircle style={{ fontSize: "2rem" }} />}</div> */}
           </Nav>
         </Navbar.Collapse>
-        <div>
+        <div className="d-flex gap-2">
+          {hover && <p className="text-white">{user.displayName}</p>}
           {user?.photoURL && user?.email && (
             <img
+              onMouseEnter={onHover}
+              onMouseLeave={onHover}
               src={user?.photoURL}
               style={{ height: "40px", width: "40px", borderRadius: "50%" }}
               alt=""
