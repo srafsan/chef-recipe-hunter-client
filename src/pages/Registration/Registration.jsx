@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext, useState, useEffect } from "react";
 import { Form } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../Providers/AuthProvider";
@@ -8,25 +8,68 @@ import "./Registration.css";
 const Registration = () => {
   const { createUser } = useContext(AuthContext);
   const [accepted, setAccepted] = useState(false);
+  const [setEmail] = useState("");
+  const [setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+  const [error, setError] = useState("");
+  const [successMessage, setSuccessMessage] = useState("");
+
+  useEffect(() => {
+    if (error) {
+      const errorTimer = setTimeout(() => {
+        setError("");
+      }, 3000);
+      return () => clearTimeout(errorTimer);
+    }
+  }, [error]);
+
+  useEffect(() => {
+    if (successMessage) {
+      const successTimer = setTimeout(() => {
+        setSuccessMessage("");
+      }, 3000);
+      return () => clearTimeout(successTimer);
+    }
+  }, [successMessage]);
 
   const handleRegister = (event) => {
     event.preventDefault();
     const form = event.target;
-    const name = form.name.value;
+    const displayName = form.name.value;
     const photoURL = form.photo.value;
     const email = form.email.value;
     const password = form.password.value;
 
-    console.log(name, photoURL, email, password);
+    console.log(displayName, photoURL, email, password);
 
-    createUser(email, password, photoURL)
-      .then((result) => {
-        const createdUser = result.user;
-        console.log(createdUser);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+    if (password !== confirmPassword) {
+      setError("Passwords do not match");
+      setSuccessMessage("");
+    } else if (password.length < 6) {
+      setError("Password must be at least 6 characters");
+      setSuccessMessage("");
+    } else {
+      createUser(email, password, photoURL)
+        .then((result) => {
+          const createdUser = result.user;
+          console.log(createdUser);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+      form.reset();
+      setSuccessMessage("Registration successful!");
+      setError("");
+    }
+
+    // createUser(email, password, photoURL)
+    //   .then((result) => {
+    //     const createdUser = result.user;
+    //     console.log(createdUser);
+    //   })
+    //   .catch((error) => {
+    //     console.log(error);
+    //   });
   };
 
   const handleAccepted = (event) => {
@@ -42,7 +85,13 @@ const Registration = () => {
             <label htmlFor="name" className="form-label">
               Name
             </label>
-            <input type="name" name="name" id="name" className="form-control" />
+            <input
+              type="name"
+              name="name"
+              id="name"
+              className="form-control"
+              required
+            />
           </div>
           <div className="form-group mb-2">
             <label htmlFor="photo" className="form-label">
@@ -53,6 +102,7 @@ const Registration = () => {
               name="photo"
               id="photo"
               className="form-control"
+              required
             />
           </div>
           <div className="form-group mb-2">
@@ -62,8 +112,11 @@ const Registration = () => {
             <input
               type="email"
               name="email"
+              // value={email}
+              onChange={(e) => setEmail(e.target.value)}
               id="email"
               className="form-control"
+              required
             />
           </div>
           <div className="form-group mb-2">
@@ -73,8 +126,22 @@ const Registration = () => {
             <input
               type="password"
               name="password"
+              onChange={(e) => setPassword(e.target.value)}
               id="password"
               className="form-control"
+              required
+            />
+          </div>
+          <div className="form-group mb-2">
+            <label htmlFor="password" className="form-label">
+              Confirm Password Address
+            </label>
+            <input
+              type="password"
+              // value={confirmPassword}
+              className="form-control"
+              onChange={(e) => setConfirmPassword(e.target.value)}
+              required
             />
           </div>
           <Form.Group className="mb-3" controlId="formBasicCheckbox">
@@ -103,6 +170,8 @@ const Registration = () => {
             Register
           </button>
         </form>
+        {error && <p className="text-danger">{error}</p>}
+        {successMessage && <p className="text-success">{successMessage}</p>}
       </div>
     </div>
   );

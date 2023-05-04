@@ -8,6 +8,9 @@ const ref = React.createRef();
 
 const Details = () => {
   const chefDetails = useLoaderData();
+  const chefRecipes = chefDetails.recipes;
+
+  console.log(chefRecipes);
 
   return (
     <div>
@@ -48,24 +51,13 @@ const Details = () => {
           The Recipes
         </h1>
         <div className="row row-cols-1 row-cols-md-3 mx-auto w-100">
-          <div className="col">
-            <DetailsRecipeList />
-          </div>
-          <div className="col">
-            <DetailsRecipeList />
-          </div>
-          <div className="col">
-            <DetailsRecipeList />
-          </div>
-          <div className="col">
-            <DetailsRecipeList />
-          </div>
-          <div className="col">
-            <DetailsRecipeList />
-          </div>
-          <div className="col">
-            <DetailsRecipeList />
-          </div>
+          {chefRecipes.map((chefRecipe, index) => {
+            return (
+              <div key={index} className="col">
+                <DetailsRecipeList chefRecipe={chefRecipe} />
+              </div>
+            );
+          })}
         </div>
       </Container>
       <div className="my-3 text-center">

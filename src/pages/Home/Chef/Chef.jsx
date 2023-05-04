@@ -13,10 +13,7 @@ function Chef({ chefDetails }) {
             <div className="card">
               <div className="img1">
                 <LazyLoad height={210}>
-                  <img
-                    src="https://images.unsplash.com/photo-1577219491135-ce391730fb2c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=677&q=80"
-                    alt=""
-                  />
+                  <img src={card.bg_url} alt="" />
                 </LazyLoad>
               </div>
               <div className="img2">
@@ -25,7 +22,7 @@ function Chef({ chefDetails }) {
                 </LazyLoad>
               </div>
               <div className="main-text">
-                <h2>{card.name}</h2>
+                <h2>{card.chef_name}</h2>
                 <p>Years of Experience: {card.chef_experience}</p>
                 <p>Number of recipes: {card.no_of_recipes}</p>
                 <p>Total Likes: {card.rating}</p>
