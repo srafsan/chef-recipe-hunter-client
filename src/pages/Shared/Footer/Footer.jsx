@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { FaFacebookF, FaGithub, FaLinkedin, FaYoutube } from "react-icons/fa";
 
 const Footer = () => {
   return (
@@ -92,18 +93,25 @@ const Footer = () => {
           <div className="row align-items-center">
             <div className="col-md-7 col-lg-8">
               <p>
-                Copyright c2023. All rights reserved by:
+                Copyright ©2023. All rights reserved by:
                 <strong className="text-warning"> Rafsan</strong>
               </p>
             </div>
             <div className="col-md-5 col-lg-4">
               <div className="text-center text-md-end">
                 <ul className="list-unstyled list-inline">
-                  <li className="list-inline-item">f</li>
-                  <li className="list-inline-item">c</li>
-                  <li className="list-inline-item">o</li>
-                  <li className="list-inline-item">g</li>
-                  <li className="list-inline-item">k</li>
+                  <li className="list-inline-item">
+                    <FaFacebookF />
+                  </li>
+                  <li className="list-inline-item">
+                    <FaGithub />
+                  </li>
+                  <li className="list-inline-item">
+                    <FaLinkedin />
+                  </li>
+                  <li className="list-inline-item">
+                    <FaYoutube />
+                  </li>
                 </ul>
               </div>
             </div>
