@@ -1,16 +1,9 @@
 import { Container } from "react-bootstrap";
 import DetailsRecipeList from "../DetailsRecipeList/DetailsRecipeList";
+import { useLoaderData } from "react-router-dom";
 
 const Details = () => {
-  const chefDetails = {
-    name: "Chef-1",
-    experience: 4,
-    recipes: 5,
-    likes: 514,
-    imageUrl:
-      "https://images.unsplash.com/photo-1577219491135-ce391730fb2c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=677&q=80",
-    bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Tortor posuere ac ut consequat semper. Aenean sed adipiscing diam donec adipiscing tristique risus. Nulla pellentesque dignissim enim sit amet venenatis. Libero volutpat sed cras ornare arcu dui vivamus. Risus commodo viverra maecenas accumsan lacus vel facilisis volutpat est. Mattis molestie a iaculis at erat pellentesque. Viverra adipiscing at in tellus integer feugiat scelerisque varius morbi. Diam vel quam elementum pulvinar. Egestas fringilla phasellus faucibus scelerisque eleifend donec pretium vulputate.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Tortor posuere ac ut consequat semper. Aenean sed adipiscing diam donec adipiscing tristique risus. Nulla pellentesque dignissim enim sit amet venenatis. Libero volutpat sed cras ornare arcu dui vivamus. Risus commodo viverra maecenas accumsan lacus vel facilisis volutpat est. Mattis molestie a iaculis at erat pellentesque. Viverra adipiscing at in tellus integer feugiat scelerisque varius morbi. Diam vel quam elementum pulvinar. Egestas fringilla phasellus faucibus scelerisque eleifend donec pretium vulputate.",
-  };
+  const chefDetails = useLoaderData();
 
   return (
     <Container className="mt-5">
@@ -19,15 +12,15 @@ const Details = () => {
           <img
             className="rounded-4"
             style={{ width: "350px" }}
-            src={chefDetails.imageUrl}
+            src={chefDetails.img_url}
             alt=""
           />
         </div>
         <div>
           <h4 className="pb-2">Name: {chefDetails.name}</h4>
-          <h4 className="pb-2">Experience: {chefDetails.experience}</h4>
-          <h4 className="pb-2">Recipes: {chefDetails.recipes}</h4>
-          <h4 className="pb-5">Likes: {chefDetails.likes}</h4>
+          <h4 className="pb-2">Experience: {chefDetails.chef_experience}</h4>
+          <h4 className="pb-2">Recipes: {chefDetails.no_of_recipes}</h4>
+          <h4 className="pb-5">Likes: {chefDetails.rating}</h4>
           <h2 className="pb-2">Bio</h2>
           <p>{chefDetails.bio}</p>
         </div>

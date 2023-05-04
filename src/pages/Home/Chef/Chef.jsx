@@ -20,7 +20,7 @@ function Chef({ chefDetails }) {
               <Card.Title>Chef&apos;s Name: {card.name}</Card.Title>
               <Card.Text>Years of experience: {card.experience}</Card.Text>
               <Card.Text>Number of recipes: {card.recipes}</Card.Text>
-              <Link to="details">
+              <Link to={`/details/${card.chef_id}`}>
                 <Button variant="primary">View Recipes</Button>
               </Link>
             </Card.Body>
