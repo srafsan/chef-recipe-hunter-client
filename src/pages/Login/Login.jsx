@@ -21,13 +21,9 @@ const Login = () => {
     const email = form.email.value;
     const password = form.password.value;
 
-    console.log(email, password);
-
     signIn(email, password)
       .then((result) => {
         const loggedUser = result.user;
-        console.log(loggedUser);
-        console.log(from);
         navigate(from, { replace: true });
       })
       .catch((error) => {
@@ -40,7 +36,6 @@ const Login = () => {
   const handleGoogle = () => {
     signInGoogle().then((result) => {
       const loggedUres = result.user;
-      console.log(loggedUres);
       navigate(from, { replace: true });
     });
   };

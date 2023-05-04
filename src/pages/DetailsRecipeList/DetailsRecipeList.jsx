@@ -5,9 +5,7 @@ import toast, { Toaster } from "react-hot-toast";
 import { AiFillHeart, AiOutlineHeart } from "react-icons/ai";
 
 const DetailsRecipeList = ({ chefRecipe }) => {
-  console.log(chefRecipe);
   const { name, ingredients, cooking_method, rating } = chefRecipe;
-  // console.log(recipe_name);
 
   const [isButtonDisabled, setIsButtonDisabled] = useState(false);
   const notify = () => {

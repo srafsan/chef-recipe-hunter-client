@@ -41,8 +41,6 @@ const Registration = () => {
     const email = form.email.value;
     const password = form.password.value;
 
-    console.log(displayName, photoURL, email, password);
-
     if (password !== confirmPassword) {
       setError("Passwords do not match");
       setSuccessMessage("");
@@ -53,7 +51,6 @@ const Registration = () => {
       createUser(email, password, photoURL)
         .then((result) => {
           const createdUser = result.user;
-          console.log(createdUser);
         })
         .catch((error) => {
           console.log(error);

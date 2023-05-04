@@ -13,14 +13,11 @@ const PopularRecipes = () => {
       .catch((error) => console.error(error));
   }, []);
 
-  console.log(data);
-
   return (
     <Container>
       <h1 className="my-5 text-center">Our Popular Foods</h1>
       <div className="d-flex flex-column flex-md-row gap-3 justify-content-between">
         {data?.map((card, index) => {
-          console.log(card);
           return (
             <Card key={index} style={{ width: "18rem" }}>
               <Card.Img
