@@ -6,7 +6,7 @@ import Registration from "../pages/Registration/Registration";
 import Home from "../pages/Home/Home/Home";
 import Details from "../pages/Details/Details";
 import Blog from "../pages/Blog/Blog";
-import PrivateRoute from "../Providers/PrivateRoute";
+import PrivateRoute from "../Routes/PrivateRoute";
 
 const router = createBrowserRouter([
   {
