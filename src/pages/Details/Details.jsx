@@ -11,26 +11,30 @@ const Details = () => {
 
   return (
     <div>
-      <Pdf targetRef={ref} filename="code-example.pdf">
-        {({ toPdf }) => <button onClick={toPdf}>Generate Pdf</button>}
-      </Pdf>
-
-      <Container ref={ref} className="mt-5">
-        <div className="mx-auto d-flex gap-4 justify-content-center">
+      <Container ref={ref} className="mt-5 w-75">
+        <div className="mx-auto d-flex flex-column flex-md-row gap-4 justify-content-center">
           <div className="me-3">
             <img
-              className="rounded-4"
-              style={{ width: "350px" }}
+              className="rounded-4 my-0"
+              style={{ width: "100%", height: "80%" }}
               src={chefDetails.img_url}
               alt=""
             />
           </div>
-          <div>
-            <h4 className="pb-2">Name: {chefDetails.name}</h4>
-            <h4 className="pb-2">Experience: {chefDetails.chef_experience}</h4>
-            <h4 className="pb-2">Recipes: {chefDetails.no_of_recipes}</h4>
-            <h4 className="pb-5">Likes: {chefDetails.rating}</h4>
-            <h2 className="pb-2">Bio</h2>
+          <div className="my-4">
+            <h3 className="pb-2 fw-bold text-uppercase">
+              Name: {chefDetails.name}
+            </h3>
+            <h3 className="pb-2 fw-bold text-uppercase">
+              Experience: {chefDetails.chef_experience}
+            </h3>
+            <h3 className="pb-2 fw-bold text-uppercase">
+              Recipes: {chefDetails.no_of_recipes}
+            </h3>
+            <h3 className="pb-5 fw-bold text-uppercase">
+              Likes: {chefDetails.rating}
+            </h3>
+            <h3 className="pb-2 fw-bold text-uppercase">Bio</h3>
             <p>{chefDetails.bio}</p>
           </div>
         </div>
@@ -38,12 +42,12 @@ const Details = () => {
         <hr />
 
         <h1
-          className="text-center"
-          style={{ marginTop: "60px", marginBottom: "50px" }}
+          className="text-center fw-bold text-uppercase"
+          style={{ marginTop: "30px", marginBottom: "50px" }}
         >
           The Recipes
         </h1>
-        <div className="row row-cols-1 row-cols-md-4">
+        <div className="row row-cols-1 row-cols-md-3 mx-auto w-100">
           <div className="col">
             <DetailsRecipeList />
           </div>
@@ -64,6 +68,15 @@ const Details = () => {
           </div>
         </div>
       </Container>
+      <div className="my-3 text-center">
+        <Pdf targetRef={ref} filename="code-example.pdf">
+          {({ toPdf }) => (
+            <button className="btn btn-dark rounded-0 p-4" onClick={toPdf}>
+              Generate Pdf
+            </button>
+          )}
+        </Pdf>
+      </div>
     </div>
   );
 };
