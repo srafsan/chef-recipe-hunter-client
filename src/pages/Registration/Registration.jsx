@@ -1,11 +1,12 @@
 import { useContext, useState, useEffect } from "react";
 import { Form } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Providers/AuthProvider";
 
 import "./Registration.css";
 
 const Registration = () => {
+  const navigate = useNavigate();
   const { createUser } = useContext(AuthContext);
   const [accepted, setAccepted] = useState(false);
   const [setEmail] = useState("");
@@ -60,16 +61,8 @@ const Registration = () => {
       form.reset();
       setSuccessMessage("Registration successful!");
       setError("");
+      navigate("/");
     }
-
-    // createUser(email, password, photoURL)
-    //   .then((result) => {
-    //     const createdUser = result.user;
-    //     console.log(createdUser);
-    //   })
-    //   .catch((error) => {
-    //     console.log(error);
-    //   });
   };
 
   const handleAccepted = (event) => {
@@ -121,7 +114,7 @@ const Registration = () => {
           </div>
           <div className="form-group mb-2">
             <label htmlFor="password" className="form-label">
-              Password Address
+              Password
             </label>
             <input
               type="password"
@@ -134,7 +127,7 @@ const Registration = () => {
           </div>
           <div className="form-group mb-2">
             <label htmlFor="password" className="form-label">
-              Confirm Password Address
+              Confirm Password
             </label>
             <input
               type="password"

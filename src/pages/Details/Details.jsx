@@ -10,8 +10,6 @@ const Details = () => {
   const chefDetails = useLoaderData();
   const chefRecipes = chefDetails.recipes;
 
-  console.log(chefRecipes);
-
   return (
     <div>
       <Container ref={ref} className="mt-5 w-75">

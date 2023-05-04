@@ -24,13 +24,13 @@ const DetailsRecipeList = ({ chefRecipe }) => {
       />
       <Card.Body>
         <Card.Title className="text-uppercase fw-bold">{name}</Card.Title>
-        <Card.Text>Indridents</Card.Text>
+        <Card.Text className="fs-4 fw-bold">Indridents</Card.Text>
         <div>
           {ingredients.map((ingredient, index) => {
             return <p key={index}>{ingredient}</p>;
           })}
         </div>
-        <Card.Text>Cooking method:</Card.Text>
+        <Card.Text className="fs-4 fw-bold">Cooking method:</Card.Text>
         <p>{cooking_method}</p>
         <Card.Text className="fw-bold">Rating: {rating}</Card.Text>
       </Card.Body>

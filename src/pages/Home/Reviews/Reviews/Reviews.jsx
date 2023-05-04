@@ -1,9 +1,3 @@
-// Import Swiper React components
-// import { Swiper } from "swiper/react";
-
-// Import Swiper styles
-import "swiper/css";
-// import ReviewsSilders from "../ReviewsSliders/ReviewsSilders";
 import { Carousel } from "react-bootstrap";
 
 import "./Reviews.css";

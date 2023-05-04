@@ -7,7 +7,7 @@ const PopularRecipes = () => {
   const [data, setData] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/popular-foods")
+    fetch("https://chef-hunter-server-srafsan.vercel.app/popular-foods")
       .then((response) => response.json())
       .then((jsonData) => setData(jsonData))
       .catch((error) => console.error(error));
@@ -18,7 +18,7 @@ const PopularRecipes = () => {
   return (
     <Container>
       <h1 className="my-5 text-center">Our Popular Foods</h1>
-      <div className="d-flex justify-content-between">
+      <div className="d-flex flex-column flex-md-row gap-3 justify-content-between">
         {data?.map((card, index) => {
           console.log(card);
           return (
@@ -33,7 +33,7 @@ const PopularRecipes = () => {
                   <Card.Title>{card.food_name}</Card.Title>
                   <Card.Text>{card.food_info}</Card.Text>
                 </div>
-                <Button className="mt-3" variant="primary">
+                <Button className="mt-3" variant="dark">
                   Go somewhere
                 </Button>
               </Card.Body>

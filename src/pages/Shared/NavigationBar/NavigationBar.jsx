@@ -37,10 +37,6 @@ const NavigationBar = () => {
             <NavLink className="text-decoration-none text-white" to="/blog">
               Blog
             </NavLink>
-            <NavLink className="text-decoration-none text-white" to="/help">
-              Help Center
-            </NavLink>
-            {/* <div>{user && <FaUserCircle style={{ fontSize: "2rem" }} />}</div> */}
           </Nav>
         </Navbar.Collapse>
         <div className="d-flex gap-2">

@@ -33,6 +33,8 @@ const Login = () => {
       .catch((error) => {
         console.error(error);
       });
+
+    form.reset();
   };
 
   const handleGoogle = () => {
