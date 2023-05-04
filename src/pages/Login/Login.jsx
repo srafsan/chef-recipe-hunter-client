@@ -1,8 +1,11 @@
 /* eslint-disable no-unused-vars */
 import { useContext } from "react";
-import { Button, Container, Form } from "react-bootstrap";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Providers/AuthProvider";
+import "./Login.css";
+
+import { FcGoogle } from "react-icons/fc";
+import { FaGithub } from "react-icons/fa";
 
 const Login = () => {
   const { signIn, signInGoogle, signInGithub } = useContext(AuthContext);
@@ -33,7 +36,10 @@ const Login = () => {
   };
 
   const handleGoogle = () => {
-    signInGoogle();
+    signInGoogle().then((result) => {
+      const loggedUres = result.user;
+      console.log(loggedUres);
+    });
   };
 
   const handleGithub = () => {
@@ -41,56 +47,62 @@ const Login = () => {
   };
 
   return (
-    <Container className="mx-auto w-25">
-      <h3>Please Login</h3>
-      <Form onSubmit={handleLogin}>
-        <Form.Group className="mb-3" controlId="formBasicEmail">
-          <Form.Label>Email address</Form.Label>
-          <Form.Control
-            type="email"
-            name="email"
-            placeholder="Enter email"
-            required
-          />
-        </Form.Group>
-
-        <Form.Group className="mb-3" controlId="formBasicPassword">
-          <Form.Label>Password</Form.Label>
-          <Form.Control
-            type="password"
-            name="password"
-            placeholder="Enter Password"
-            required
-          />
-        </Form.Group>
-        <Button variant="primary" type="submit">
-          Login
-        </Button>
-        <br />
-        <Form.Text className="text-secondary">
-          Don&apos;t Have an Account?
-          <Link to="/register" className="text-danger">
-            Register
-          </Link>
-        </Form.Text>
-        <Form.Text className="text-success"></Form.Text>
-        <Form.Text className="text-danger"></Form.Text>
-
-        <div className="d-flex flex-column">
-          <Button
-            onClick={handleGoogle}
-            className="my-3"
-            variant="primary"
-            type="submit"
-          >
-            Google
-          </Button>
-          <Button onClick={handleGithub} variant="primary" type="submit">
-            Github
-          </Button>
-        </div>
-      </Form>
-    </Container>
+    <div className="wrapper bg-dark d-flex align-items-center justify-content-center w-100">
+      <div className="login rounded">
+        <h2 className="fw-bold">Login Form</h2>
+        <form onSubmit={handleLogin}>
+          <div className="form-group mb-2">
+            <label htmlFor="email" className="form-label">
+              Email Address
+            </label>
+            <input
+              type="email"
+              name="email"
+              id="email"
+              className="form-control"
+            />
+          </div>
+          <div className="form-group mb-2">
+            <label htmlFor="password" className="form-label">
+              Password Address
+            </label>
+            <input
+              type="password"
+              name="password"
+              id="password"
+              className="form-control"
+            />
+          </div>
+          <div className="form-group mb-2">
+            Already Have an Account?{" "}
+            <Link to="/login" className="text-danger">
+              Login
+            </Link>
+          </div>
+          <button type="submit" className="btn btn-success w-100 mt-2">
+            SIGN IN
+          </button>
+          <hr />
+          <p className="mb-2 text-center">Or continue with</p>
+          <div className="d-flex justify-content-center">
+            <button
+              onClick={handleGoogle}
+              type="submit"
+              className="btn btn-outline-dark mt-2 me-2 rounded-4"
+            >
+              <FcGoogle />
+            </button>
+            <button
+              onClick={handleGithub}
+              type="submit"
+              className="btn btn-outline-dark mt-2 rounded-4"
+            >
+              <FaGithub />
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
   );
 };
 

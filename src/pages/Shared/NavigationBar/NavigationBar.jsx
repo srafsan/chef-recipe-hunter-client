@@ -2,11 +2,8 @@ import { useContext } from "react";
 import { Container, Nav, Navbar } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
 import { AuthContext } from "../../../Providers/AuthProvider";
-import { FaUserCircle } from "react-icons/fa";
-
 const NavigationBar = () => {
   const { user, logOut } = useContext(AuthContext);
-
   const handleLogOut = () => {
     logOut();
   };
@@ -37,10 +34,17 @@ const NavigationBar = () => {
             <NavLink className="text-decoration-none text-white" to="/help">
               Help Center
             </NavLink>
-            <div>{user && <FaUserCircle style={{ fontSize: "2rem" }} />}</div>
+            {/* <div>{user && <FaUserCircle style={{ fontSize: "2rem" }} />}</div> */}
           </Nav>
         </Navbar.Collapse>
         <div>
+          {user?.photoURL && user?.email && (
+            <img
+              src={user?.photoURL}
+              style={{ height: "40px", width: "40px", borderRadius: "50%" }}
+              alt=""
+            />
+          )}
           {user ? (
             <button className="btn btn-light" onClick={handleLogOut}>
               Logout

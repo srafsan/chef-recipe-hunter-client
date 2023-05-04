@@ -11,13 +11,13 @@ const Registration = () => {
     event.preventDefault();
     const form = event.target;
     const name = form.name.value;
-    const photo = form.photo.value;
+    const photoURL = form.photo.value;
     const email = form.email.value;
     const password = form.password.value;
 
-    console.log(name, photo, email, password);
+    console.log(name, photoURL, email, password);
 
-    createUser(email, password)
+    createUser(email, password, photoURL)
       .then((result) => {
         const createdUser = result.user;
         console.log(createdUser);
