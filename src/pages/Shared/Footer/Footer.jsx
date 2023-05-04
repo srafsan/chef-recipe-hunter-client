@@ -3,30 +3,30 @@ import { FaFacebookF, FaGithub, FaLinkedin, FaYoutube } from "react-icons/fa";
 
 const Footer = () => {
   return (
-    <footer className="bg-dark text-white pt-5 pb-4">
+    <footer className="bg-dark text-white pt-5 pb-4 mx-auto">
       <div className="container text-center text-md-start">
         <div className="row text-center text-md-start">
           <div className="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3">
             <h5 className="text-uppercase mb-4 font-weight-bold text-warning">
-              Company Name
+              RCafe
             </h5>
             <p>
-              Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-              Voluptatibus, facilis! Quisquam ab tenetur aspernatur placeat.
+              This is a service where we provide the best chefs according to
+              your desires
             </p>
           </div>
           <div className="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3">
             <h5 className="text-uppercase mb-4 font-weight-bold text-warning">
-              Products
+              Informations
             </h5>
             <p>
               <Link to="/" className="text-white text-decoration-none">
-                The Providers
+                Terms of Services
               </Link>
             </p>
             <p>
               <Link to="/" className="text-white text-decoration-none">
-                Creativity
+                Privacy Policies
               </Link>
             </p>
             <p>
@@ -41,49 +41,23 @@ const Footer = () => {
             </p>
           </div>
 
-          <div className="col-md-3 col-lg-2 col-xl-2 mx-auto mt-3">
-            <h5 className="text-uppercase mb-4 font-weight-bold text-warning">
-              Useful Links
-            </h5>
-            <p>
-              <Link to="/" className="text-white text-decoration-none">
-                Your Account
-              </Link>
-            </p>
-            <p>
-              <Link to="/" className="text-white text-decoration-none">
-                Become an Affiliates
-              </Link>
-            </p>
-            <p>
-              <Link to="/" className="text-white text-decoration-none">
-                Shipping Rates
-              </Link>
-            </p>
-            <p>
-              <Link to="/" className="text-white text-decoration-none">
-                Help
-              </Link>
-            </p>
-          </div>
-
           <div className="col-md-4 col-lg-3 col-xl-3 mx-auto mt-3">
             <h5 className="text-uppercase mb-4 font-weight-bold text-warning">
               Address
             </h5>
             <p>
               <Link to="/" className="text-white text-decoration-none">
-                Email
+                xxxxx@xxxxx.com
               </Link>
             </p>
             <p>
               <Link to="/" className="text-white text-decoration-none">
-                Phone
+                01x-xxxxxxxxx
               </Link>
             </p>
             <p>
               <Link to="/" className="text-white text-decoration-none">
-                Phone2
+                Chattogram, Bangladesh
               </Link>
             </p>
           </div>
