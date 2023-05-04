@@ -39,11 +39,13 @@ const Login = () => {
     signInGoogle().then((result) => {
       const loggedUres = result.user;
       console.log(loggedUres);
+      navigate(from, { replace: true });
     });
   };
 
   const handleGithub = () => {
     signInGithub();
+    navigate(from, { replace: true });
   };
 
   return (

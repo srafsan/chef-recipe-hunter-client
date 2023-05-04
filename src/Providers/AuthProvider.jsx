@@ -25,11 +25,13 @@ const AuthProvider = ({ children }) => {
 
   //   Sign in with google
   const signInGoogle = () => {
+    setLoading(true);
     return signInWithPopup(auth, providerGoogle);
   };
 
   //   Sign in with github
   const signInGithub = () => {
+    setLoading(true);
     return signInWithPopup(auth, providerGithub);
   };
 

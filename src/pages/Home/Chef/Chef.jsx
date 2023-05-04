@@ -4,9 +4,9 @@ import "./Chef.css";
 
 function Chef({ chefDetails }) {
   return (
-    <div className="chef profile-area  mx-auto my-5">
+    <div className="chef profile-area my-5">
       <h1 className="text-center mb-5">Our Chefs</h1>
-      <div className="row">
+      <div className="row mx-auto">
         {chefDetails.map((card, index) => (
           <div key={index} className="g-4 col-md-4">
             <div className="card">
