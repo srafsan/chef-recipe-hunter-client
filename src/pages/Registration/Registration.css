@@ -1,0 +1,11 @@
+.wrapper{
+    height: 80vh;
+}
+
+.register {
+    padding: 20px;
+    width: 400px;
+    height: min-content;
+    color: black;
+    background-color: rgb(238, 241, 243);
+}

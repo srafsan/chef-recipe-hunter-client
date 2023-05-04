@@ -74,9 +74,9 @@ const Login = () => {
             />
           </div>
           <div className="form-group mb-2">
-            Already Have an Account?{" "}
-            <Link to="/login" className="text-danger">
-              Login
+            Dont Have an Account?{" "}
+            <Link to="/register" className="text-danger">
+              Register
             </Link>
           </div>
           <button type="submit" className="btn btn-success w-100 mt-2">
