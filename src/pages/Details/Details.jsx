@@ -24,7 +24,7 @@ const Details = () => {
           </div>
           <div className="my-4">
             <h3 className="pb-2 fw-bold text-uppercase">
-              Name: {chefDetails.name}
+              Name: {chefDetails.chef_name}
             </h3>
             <h3 className="pb-2 fw-bold text-uppercase">
               Experience: {chefDetails.chef_experience}
@@ -51,7 +51,7 @@ const Details = () => {
         <div className="row row-cols-1 row-cols-md-3 mx-auto w-100">
           {chefRecipes.map((chefRecipe, index) => {
             return (
-              <div key={index} className="col">
+              <div key={index} className="col mb-3">
                 <DetailsRecipeList chefRecipe={chefRecipe} />
               </div>
             );
