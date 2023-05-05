@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { useContext, useState, useEffect } from "react";
 import { Form } from "react-bootstrap";
 import { Link, useNavigate } from "react-router-dom";
@@ -10,9 +11,6 @@ const Registration = () => {
 
   const navigate = useNavigate();
   const [accepted, setAccepted] = useState(false);
-  const [setEmail] = useState("");
-  const [setPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
   const [error, setError] = useState("");
   const [successMessage, setSuccessMessage] = useState("");
 
@@ -41,6 +39,7 @@ const Registration = () => {
     const photoURL = form.photo.value;
     const email = form.email.value;
     const password = form.password.value;
+    const confirmPassword = form.confirmPassword.value;
 
     if (password !== confirmPassword) {
       setError("Passwords do not match");
@@ -105,7 +104,6 @@ const Registration = () => {
               type="email"
               name="email"
               // value={email}
-              onChange={(e) => setEmail(e.target.value)}
               id="email"
               className="form-control"
               required
@@ -118,7 +116,6 @@ const Registration = () => {
             <input
               type="password"
               name="password"
-              onChange={(e) => setPassword(e.target.value)}
               id="password"
               className="form-control"
               required
@@ -130,9 +127,9 @@ const Registration = () => {
             </label>
             <input
               type="password"
+              name="confirmPassword"
               // value={confirmPassword}
               className="form-control"
-              onChange={(e) => setConfirmPassword(e.target.value)}
               required
             />
           </div>

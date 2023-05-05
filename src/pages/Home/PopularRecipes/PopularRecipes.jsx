@@ -19,7 +19,7 @@ const PopularRecipes = () => {
       <div className="d-flex flex-column flex-md-row gap-3 justify-content-between">
         {data?.map((card, index) => {
           return (
-            <Card key={index} style={{ width: "18rem" }}>
+            <Card key={index} style={{ width: "100%" }}>
               <Card.Img
                 style={{ height: "300px" }}
                 variant="top"
