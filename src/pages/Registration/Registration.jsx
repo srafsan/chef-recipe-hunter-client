@@ -6,8 +6,9 @@ import { AuthContext } from "../../Providers/AuthProvider";
 import "./Registration.css";
 
 const Registration = () => {
-  const navigate = useNavigate();
   const { createUser } = useContext(AuthContext);
+
+  const navigate = useNavigate();
   const [accepted, setAccepted] = useState(false);
   const [setEmail] = useState("");
   const [setPassword] = useState("");
@@ -48,7 +49,7 @@ const Registration = () => {
       setError("Password must be at least 6 characters");
       setSuccessMessage("");
     } else {
-      createUser(email, password, photoURL)
+      createUser(email, password, photoURL, displayName)
         .then((result) => {
           const createdUser = result.user;
         })

@@ -36,15 +36,18 @@ const AuthProvider = ({ children }) => {
   };
 
   //   Create account(register)
-  const createUser = (email, password, photoURL) => {
+  const createUser = (email, password, photoURL, displayName) => {
     setLoading(true);
     return createUserWithEmailAndPassword(auth, email, password).then(
       (result) => {
         const user = result.user;
-        // Update the user's photoURL in Firebase
+        // Update the user's profile with photoURL
         return updateProfile(user, { photoURL: photoURL }).then(() => {
-          // Return the user object with updated photoURL
-          return user;
+          // Update the user's profile with displayName
+          return updateProfile(user, { displayName: displayName }).then(() => {
+            // Return the user object with updated profile
+            return user;
+          });
         });
       }
     );
