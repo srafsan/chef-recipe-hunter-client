@@ -6,7 +6,7 @@ import { AuthContext } from "../../Providers/AuthProvider";
 import "./Registration.css";
 
 const Registration = () => {
-  const { createUser } = useContext(AuthContext);
+  const { setReload, createUser } = useContext(AuthContext);
 
   const navigate = useNavigate();
   const [accepted, setAccepted] = useState(false);
@@ -52,6 +52,7 @@ const Registration = () => {
       createUser(email, password, photoURL, displayName)
         .then((result) => {
           const createdUser = result.user;
+          setReload(true);
         })
         .catch((error) => {
           console.log(error);

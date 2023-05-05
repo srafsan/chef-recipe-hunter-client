@@ -20,6 +20,8 @@ const providerGoogle = new GoogleAuthProvider();
 const providerGithub = new GithubAuthProvider();
 
 const AuthProvider = ({ children }) => {
+  const [reload, setReload] = useState(false);
+
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
 
@@ -78,6 +80,8 @@ const AuthProvider = ({ children }) => {
   }, []);
 
   const authInfo = {
+    reload,
+    setReload,
     user,
     loading,
     createUser,
