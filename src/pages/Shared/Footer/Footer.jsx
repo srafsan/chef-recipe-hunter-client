@@ -57,7 +57,7 @@ const Footer = () => {
             </p>
             <p>
               <Link to="/" className="text-white text-decoration-none">
-                Chattogram, Bangladesh
+                Chattogram, Bangladesh.
               </Link>
             </p>
           </div>

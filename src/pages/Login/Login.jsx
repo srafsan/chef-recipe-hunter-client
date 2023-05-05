@@ -1,13 +1,15 @@
 /* eslint-disable no-unused-vars */
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Providers/AuthProvider";
 import "./Login.css";
 
 import { FcGoogle } from "react-icons/fc";
 import { FaGithub } from "react-icons/fa";
+import { useEffect } from "react";
 
 const Login = () => {
+  const [error, setError] = useState("");
   const { signIn, signInGoogle, signInGithub } = useContext(AuthContext);
 
   const navigate = useNavigate();
@@ -24,10 +26,13 @@ const Login = () => {
     signIn(email, password)
       .then((result) => {
         const loggedUser = result.user;
+        setError("");
         navigate(from, { replace: true });
       })
       .catch((error) => {
-        console.error(error);
+        if ("Firebase: Error (auth/wrong-password)." === error.message)
+          setError("Email/Password is incorrect!");
+        // else setError(error.message);
       });
 
     form.reset();
@@ -44,6 +49,15 @@ const Login = () => {
     signInGithub();
     navigate(from, { replace: true });
   };
+
+  useEffect(() => {
+    if (error) {
+      const errorTimer = setTimeout(() => {
+        setError("");
+      }, 3000);
+      return () => clearTimeout(errorTimer);
+    }
+  }, [error]);
 
   return (
     <div className="wrapper bg-dark d-flex align-items-center justify-content-center w-100">
@@ -81,6 +95,7 @@ const Login = () => {
           <button type="submit" className="btn btn-success w-100 mt-2">
             SIGN IN
           </button>
+          <p className="text-danger">{error}</p>
           <hr />
           <p className="mb-2 text-center">Or continue with</p>
           <div className="d-flex justify-content-center">
